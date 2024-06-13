@@ -18,3 +18,37 @@ img {
   width: 10%;
   height: 20%;
 }
+
+section {
+  display: none; /* initially hide all sections */
+}
+
+.welcomePage {
+  display: block;
+}
+
+.petSelectionPage,
+.gamePage,
+.deathMes {
+  display: none; /* hide these sections by default */
+}
+
+.image-button {
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: border-color 0.3s;
+}
+
+.image-button:hover {
+  border-color: blue;
+}
+
+.animals > div {
+  display: none; /* hide all animal sections by default */
+}
+
+.snake,
+.fish,
+.rabbit {
+  display: none; /* ensure specific animals are hidden by default */
+}
