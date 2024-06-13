@@ -37,18 +37,6 @@ h2 {
 }
 .petSelectionPage,
 .gamePage,
-#snakePetImage {
-  background-image: url("./Images/snaketank.jpg");
-}
-
-#fishPetImage {
-  background-image: url("./Images/fishtank.jpg");
-}
-
-#rabbitPetImage {
-  background-image: url("./Images/field.jpg");
-}
-
 .deathMes {
   display: none; /* hide these sections by default */
 }
