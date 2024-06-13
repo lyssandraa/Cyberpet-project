@@ -78,6 +78,27 @@ document.addEventListener("DOMContentLoaded", () => {
   const fishSection = document.querySelector(".fish");
   const rabbitSection = document.querySelector(".rabbit");
 
+  //get stat bar ids
+  const hungerBar = document.getElementById("hungerBar");
+  const thirstBar = document.getElementById("thirstBar");
+  const healthBar = document.getElementById("healthBar");
+  const happyBar = document.getElementById("happyBar");
+  //get stat bar wrap ids
+  const hungerBarWrap = document.getElementById("hungerBarWrap");
+  const thirstBarWrap = document.getElementById("thirstBarWrap");
+  const healthBarWrap = document.getElementById("healthBarWrap");
+  const happyBarWrap = document.getElementById("happyBarWrap");
+  //get button ids
+  const eatButton = document.getElementById("eatButton");
+  const drinkButton = document.getElementById("drinkButton");
+  const sleepButton = document.getElementById("sleepButton");
+  const playButton = document.getElementById("playButton");
+  //get button wrap ids
+  const eatButtonWrap = document.getElementById("eatButtonWrap");
+  const drinkButtonWrap = document.getElementById("drinkButtonWrap");
+  const sleepButtonWrap = document.getElementById("sleepButtonWrap");
+  const happyButtonWrap = document.getElementById("happyButtonWrap");
+
   //variable to store the selected pet with no value assigned to it. nulll is placeholder //
   let selectedPet = null;
 
