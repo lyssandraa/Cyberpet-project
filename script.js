@@ -162,3 +162,68 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
+
+//hide thirst if fish
+function thirstDisplay() {
+  if (pet instanceof Fish) {
+    drinkButtonWrap.style.display = "none";
+    thirstBarWrap.style.display = "none";
+  }
+}
+thirstDisplay();
+
+// makes the hunger bar go down
+const decreaseHunger = () => {
+  const interval = setInterval(reduceBar, 200);
+  function reduceBar() {
+    hungerBar.value--;
+  }
+};
+decreaseHunger();
+
+//makes the thirst bar go down
+const decreaseThirst = () => {
+  const interval = setInterval(reduceBar, 200);
+  function reduceBar() {
+    thirstBar.value--;
+  }
+};
+decreaseThirst();
+
+//makes the health bar go down
+const decreaseHealth = () => {
+  const interval = setInterval(reduceBar, 200);
+  function reduceBar() {
+    healthBar.value--;
+  }
+};
+decreaseHealth();
+
+//makes the happiness bar go down
+const decreaseHappy = () => {
+  const interval = setInterval(reduceBar, 200);
+  function reduceBar() {
+    happyBar.value--;
+  }
+};
+decreaseHappy();
+
+//buttons work
+eatButton.addEventListener("click", function () {
+  pet.eat();
+});
+drinkButton.addEventListener("click", function () {
+  pet.drink();
+});
+sleepButton.addEventListener("click", function () {
+  pet.sleep();
+});
+playButton.addEventListener("click", function () {
+  if (pet instanceof Snake) {
+    pet.slither();
+  } else if (pet instanceof Fish) {
+    pet.swim();
+  } else if (pet instanceof Rabbit) {
+    pet.hop();
+  }
+});
