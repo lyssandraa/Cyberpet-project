@@ -6,23 +6,19 @@ class Animal {
   eat() {
     hungerBar.value += 10;
   }
-  clean() {
-    this.health += 10;
-  }
   sleep() {
-    this.health += 10;
-    this.hunger -= 10;
-    this.thirst -= 10;
+    healthBar.value += 10;
+    hungerBar.value -= 10;
+    thirstBar.value -= 10;
   }
 }
 
 class Snake extends Animal {
   constructor(name) {
     super(name);
-    this.thirst = 100;
   }
   drink() {
-    this.thirst += 10;
+    thirstBar.value += 10;
   }
   slither() {
     this.happiness += 10;

@@ -7,11 +7,33 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <label for="hungerBar">hunger</label>
-    <progress id="hungerBar" value="50" max="100"></progress>
-    <div>
-      <br />
-      <button id="eatButton">eat</button>
+    <div id="statBars">
+      <div>
+        <label for="hungerBar">hunger</label>
+        <progress id="hungerBar" value="50" max="100"></progress>
+      </div>
+      <div>
+        <label for="thirstBar">thirst</label>
+        <progress id="thirstBar" value="50" max="100"></progress>
+      </div>
+      <div>
+        <label for="healthBar">health</label>
+        <progress id="healthBar" value="50" max="100"></progress>
+      </div>
+    </div>
+    <div id="buttons">
+      <div>
+        <br />
+        <button id="eatButton">eat</button>
+      </div>
+      <div>
+        <br />
+        <button id="drinkButton">drink</button>
+      </div>
+      <div>
+        <br />
+        <button id="sleepButton">sleep</button>
+      </div>
     </div>
     <script src="script.js"></script>
     <script src="stats.js"></script>
