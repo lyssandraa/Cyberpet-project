@@ -35,6 +35,12 @@ h1 {
 h2 {
   color: rgb(68, 7, 7);
 }
+
+p {
+  color: rgb(1, 21, 9);
+  font-size: 18px;
+  display: block;
+}
 .petSelectionPage,
 .gamePage,
 .deathMes {
