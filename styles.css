@@ -25,8 +25,16 @@ section {
 
 .welcomePage {
   display: block;
+  text-align: center;
 }
 
+h1 {
+  font-size: 30px;
+}
+
+h2 {
+  color: rgb(68, 7, 7);
+}
 .petSelectionPage,
 .gamePage,
 #snakePetImage {
@@ -63,4 +71,9 @@ section {
 .fish,
 .rabbit {
   display: none; /* ensure specific animals are hidden by default */
+}
+
+.errorMessage {
+  color: red;
+  display: none;
 }
