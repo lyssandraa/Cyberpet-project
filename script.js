@@ -76,6 +76,12 @@ document.addEventListener("DOMContentLoaded", () => {
   const fishSection = document.querySelector(".fish");
   const rabbitSection = document.querySelector(".rabbit");
 
+  // reference to the name input field //
+  const petNameInput = document.getElementById("petName");
+
+  // reference to the play button //
+  const playButton = document.querySelector(".playBtn button");
+
   // add eventlistner to transition from welcome to pet selection when enter is pressed //
   document.addEventListener("keydown", (event) => {
     if (event.key === "Enter") {
