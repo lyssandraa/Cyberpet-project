@@ -68,4 +68,41 @@ document.addEventListener("DOMContentLoaded", () => {
   const snakeSection = document.querySelector(".snake");
   const fishSection = document.querySelector(".fish");
   const rabbitSection = document.querySelector(".rabbit");
+
+  // reference to the name input field //
+  const petNameInput = document.getElementById("petName");
+
+  // reference to the play button //
+  const playButton = document.querySelector(".playBtn button");
+
+  //variable to store the selected pet with no value assigned to it. nulll is placeholder //
+  let selectedPet = null;
+
+  // add eventlistner to transition from welcome to pet selection when enter is pressed //
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Enter") {
+      // hides welcome page //
+      welcomePage.style.display = "none";
+      // displays pet selection page instead //
+      petSelectionPage.style.display = "block";
+    }
+  });
+
+  // function for the pet selection process //
+  function selectPet(pet) {
+    selectedPet = pet;
+  }
+
+  // eventlisteners for pet images //
+  snakeSelect.addEventListener("click", () => {
+    selectPet("snake");
+  });
+
+  fishSelect.addEventListener("click", () => {
+    selectPet("fish");
+  });
+
+  rabbitSelect.addEventListener("click", () => {
+    selectPet("rabbit");
+  });
 });
