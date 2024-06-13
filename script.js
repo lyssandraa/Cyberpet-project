@@ -75,4 +75,14 @@ document.addEventListener("DOMContentLoaded", () => {
   const snakeSection = document.querySelector(".snake");
   const fishSection = document.querySelector(".fish");
   const rabbitSection = document.querySelector(".rabbit");
+
+  // add eventlistner to transition from welcome to pet selection when enter is pressed //
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Enter") {
+      // hides welcome page //
+      welcomePage.style.display = "none";
+      // displays pet selection page instead //
+      petSelectionPage.style.display = "block";
+    }
+  });
 });
