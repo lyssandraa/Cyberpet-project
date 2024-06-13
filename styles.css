@@ -4,3 +4,17 @@ body {
   background-size: 100%;
   color: darkblue;
 }
+
+img {
+  background: transparent;
+}
+
+.selectionBtns {
+  display: flex;
+  flex-direction: row;
+}
+
+.selectionBtns img {
+  width: 10%;
+  height: 20%;
+}
