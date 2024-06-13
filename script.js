@@ -2,12 +2,9 @@
 class Animal {
   constructor(name) {
     this.name = name;
-    this.health = 100;
-    this.hunger = 100;
-    this.happiness = 100;
   }
   eat() {
-    this.hunger += 10;
+    hungerBar.value += 10;
   }
   clean() {
     this.health += 10;
