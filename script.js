@@ -13,6 +13,7 @@ class Animal {
   }
 }
 
+//pet subclasses
 class Snake extends Animal {
   constructor(name) {
     super(name);
@@ -21,9 +22,9 @@ class Snake extends Animal {
     thirstBar.value += 10;
   }
   slither() {
-    this.happiness += 10;
-    this.hunger -= 10;
-    this.thirst -= 10;
+    happyBar.value += 10;
+    hungerBar.value -= 10;
+    thirstBar.value -= 10;
   }
 }
 
@@ -32,24 +33,23 @@ class Fish extends Animal {
     super(name);
   }
   swim() {
-    this.happiness += 10;
-    this.hunger -= 10;
-    this.thirst -= 10;
+    happyBar.value += 10;
+    hungerBar.value -= 10;
+    thirstBar.value -= 10;
   }
 }
 
 class Rabbit extends Animal {
   constructor(name) {
     super(name);
-    this.thirst = 100;
   }
   drink() {
-    this.thirst += 10;
+    thirstBar.value += 10;
   }
   hop() {
-    this.happiness += 10;
-    this.hunger -= 10;
-    this.thirst -= 10;
+    happyBar.value += 10;
+    hungerBar.value -= 10;
+    thirstBar.value -= 10;
   }
 }
 
