@@ -72,6 +72,9 @@ document.addEventListener("DOMContentLoaded", () => {
   // reference to the play button //
   const playBtn = document.getElementById("playBtn");
 
+  //reference to the error message//
+  const errorMessage = document.getElementById("errorMessage");
+
   // references to the different sections in the HTML //
   const welcomePage = document.querySelector(".welcomePage");
   const petSelectionPage = document.querySelector(".petSelectionPage");
@@ -116,7 +119,11 @@ document.addEventListener("DOMContentLoaded", () => {
   // eventlisteners for the play button and name input field //
   playBtn.addEventListener("click", () => {
     const petName = petNameInput.value;
-    if (selectedPet && petName !== "") {
+    if (!selectedPet || petName === "") {
+      errorMessage.style.display = "block";
+      errorMessage.textContent = "Please select a pet and enter a name.";
+    } else {
+      errorMessage.style.display = "none";
       petSelectionPage.style.display = "none";
       gamePage.style.display = "block";
 
