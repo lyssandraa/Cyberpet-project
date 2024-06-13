@@ -44,3 +44,18 @@ class Fish extends Animal {
     this.thirst -= 10;
   }
 }
+
+class Rabbit extends Animal {
+  constructor(name) {
+    super(name);
+    this.thirst = 100;
+  }
+  drink() {
+    this.thirst += 10;
+  }
+  hop() {
+    this.happiness += 10;
+    this.hunger -= 10;
+    this.thirst -= 10;
+  }
+}
