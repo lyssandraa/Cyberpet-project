@@ -128,14 +128,17 @@ document.addEventListener("DOMContentLoaded", () => {
       gamePage.style.display = "block";
 
       if (selectedPet === "snake") {
+        snakeNameDisplay.textContent = petName;
         snakeSection.style.display = "block";
         fishSection.style.display = "none";
         rabbitSection.style.display = "none";
       } else if (selectedPet === "fish") {
+        fishNameDisplay.textContent = petName;
         snakeSection.style.display = "none";
         fishSection.style.display = "block";
         rabbitSection.style.display = "none";
       } else if (selectedPet === "rabbit") {
+        rabbitNameDisplay.textContent = petName;
         snakeSection.style.display = "none";
         fishSection.style.display = "none";
         rabbitSection.style.display = "block";
