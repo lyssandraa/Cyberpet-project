@@ -18,3 +18,18 @@ class Animal {
     this.thirst -= 10;
   }
 }
+
+class Snake extends Animal {
+  constructor(name) {
+    super(name);
+    this.thirst = 100;
+  }
+  drink() {
+    this.thirst += 10;
+  }
+  slither() {
+    this.happiness += 10;
+    this.hunger -= 10;
+    this.thirst -= 10;
+  }
+}
