@@ -52,3 +52,8 @@ section {
 .rabbit {
   display: none; /* ensure specific animals are hidden by default */
 }
+
+.errorMessage {
+  color: red;
+  display: none;
+}

@@ -59,6 +59,15 @@ document.addEventListener("DOMContentLoaded", () => {
   const fishSelect = document.getElementById("fishSelect");
   const rabbitSelect = document.getElementById("rabbitSelect");
 
+  // reference to the name input field //
+  const petNameInput = document.getElementById("petName");
+
+  // reference to the play button //
+  const playBtn = document.getElementById("playBtn");
+
+  //reference to the error message//
+  const errorMessage = document.getElementById("errorMessage");
+
   // references to the different sections in the HTML //
   const welcomePage = document.querySelector(".welcomePage");
   const petSelectionPage = document.querySelector(".petSelectionPage");
@@ -68,12 +77,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const snakeSection = document.querySelector(".snake");
   const fishSection = document.querySelector(".fish");
   const rabbitSection = document.querySelector(".rabbit");
-
-  // reference to the name input field //
-  const petNameInput = document.getElementById("petName");
-
-  // reference to the play button //
-  const playButton = document.querySelector(".playBtn button");
 
   //variable to store the selected pet with no value assigned to it. nulll is placeholder //
   let selectedPet = null;
@@ -104,5 +107,34 @@ document.addEventListener("DOMContentLoaded", () => {
 
   rabbitSelect.addEventListener("click", () => {
     selectPet("rabbit");
+  });
+
+  // eventlisteners for the play button and name input field //
+  playBtn.addEventListener("click", () => {
+    const petName = petNameInput.value;
+    if (!selectedPet || petName === "") {
+      errorMessage.style.display = "block";
+      errorMessage.textContent = "Please select a pet and enter a name.";
+    } else {
+      errorMessage.style.display = "none";
+      petSelectionPage.style.display = "none";
+      gamePage.style.display = "block";
+
+      if (selectedPet === "snake") {
+        snakeSection.style.display = "block";
+        fishSection.style.display = "none";
+        rabbitSection.style.display = "none";
+      } else if (selectedPet === "fish") {
+        snakeSection.style.display = "none";
+        fishSection.style.display = "block";
+        rabbitSection.style.display = "none";
+      } else if (selectedPet === "rabbit") {
+        snakeSection.style.display = "none";
+        fishSection.style.display = "none";
+        rabbitSection.style.display = "block";
+      } else {
+        alert("Please select a pet and enter a name.");
+      }
+    }
   });
 });
