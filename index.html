@@ -46,7 +46,6 @@
           id="snakeSelect"
           class="image-button"
         />
-
         <p>Level 2</p>
         <img
           src="./Images/cartoon-fish.png"
@@ -54,7 +53,6 @@
           id="fishSelect"
           class="image-button"
         />
-
         <p>Level 3</p>
         <img
           src="./Images/cartoon-rabbit.png"
@@ -67,16 +65,13 @@
         <label for="petname">Your pet's name</label>
         <input type="text" id="petName" name="petName" />
       </div>
+      <div class="errorMessage" id="errorMessage"></div>
       <div class="playBtn">
-        <button>Play</button>
+        <button id="playBtn">Play</button>
       </div>
     </section>
-
     <section class="gamePage">
       <div class="animals">
-        <div class="snake">Snake Section</div>
-        <div class="fish">Fish Section</div>
-        <div class="rabbit">Rabbit Section</div>
         <div class="snake">
           <span id="snakeNameDisplay"></span>
           <div id="hungerBarWrap">
@@ -192,7 +187,6 @@
         </div>
       </div>
     </section>
-
     <section class="deathMes">
       <h1>
         Oh no! <br />
@@ -201,7 +195,6 @@
       <p>You have managed to care for your pet and keep it healthy for ...</p>
       <h2>Would you like to start over?</h2>
     </section>
-
     <script src="script.js"></script>
   </body>
 </html>
