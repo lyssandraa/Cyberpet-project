@@ -74,15 +74,15 @@ document.addEventListener("DOMContentLoaded", () => {
   const rabbitSection = document.querySelector(".rabbit");
 
   //get stat bar ids
-  const hungerBar = document.getElementById("hungerBar");
-  const thirstBar = document.getElementById("thirstBar");
-  const healthBar = document.getElementById("healthBar");
-  const happyBar = document.getElementById("happyBar");
+  const hungerBar = document.getElementsByClassName("hungerBar");
+  const thirstBar = document.getElementsByClassName("thirstBar");
+  const healthBar = document.getElementsByClassName("healthBar");
+  const happyBar = document.getElementsByClassName("happyBar");
   //get button ids
-  const eatButton = document.getElementById("eatButton");
-  const drinkButton = document.getElementById("drinkButton");
-  const sleepButton = document.getElementById("sleepButton");
-  const playButton = document.getElementById("playButton");
+  const eatButton = document.getElementsByClassName("eatButton");
+  const drinkButton = document.getElementsByClassName("drinkButton");
+  const sleepButton = document.getElementsByClassName("sleepButton");
+  const playButton = document.getElementsByClassName("playButton");
 
   //variable to store the selected pet instance
   let pet = null;
@@ -148,6 +148,10 @@ document.addEventListener("DOMContentLoaded", () => {
       errorMessage.style.display = "none";
       petSelectionPage.style.display = "none";
       gamePage.style.display = "block";
+      decreaseHunger();
+      decreaseThirst();
+      decreaseHealth();
+      decreaseHappy();
     }
   });
 
@@ -157,7 +161,6 @@ document.addEventListener("DOMContentLoaded", () => {
       hungerBar.value--;
     }, 200);
   };
-  decreaseHunger();
 
   //makes the thirst bar go down
   const decreaseThirst = () => {
@@ -165,7 +168,6 @@ document.addEventListener("DOMContentLoaded", () => {
       thirstBar.value--;
     }, 200);
   };
-  decreaseThirst();
 
   //makes the health bar go down
   const decreaseHealth = () => {
@@ -173,7 +175,6 @@ document.addEventListener("DOMContentLoaded", () => {
       healthBar.value--;
     }, 200);
   };
-  decreaseHealth();
 
   //makes the happiness bar go down
   const decreaseHappy = () => {
@@ -181,7 +182,6 @@ document.addEventListener("DOMContentLoaded", () => {
       happyBar.value--;
     }, 200);
   };
-  decreaseHappy();
 
   //buttons work
   eatButton.addEventListener("click", () => {
