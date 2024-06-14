@@ -148,10 +148,6 @@ document.addEventListener("DOMContentLoaded", () => {
       errorMessage.style.display = "none";
       petSelectionPage.style.display = "none";
       gamePage.style.display = "block";
-      decreaseHunger();
-      decreaseThirst();
-      decreaseHealth();
-      decreaseHappy();
     }
   });
 
@@ -161,6 +157,7 @@ document.addEventListener("DOMContentLoaded", () => {
       hungerBar.value--;
     }, 200);
   };
+  decreaseHunger();
 
   //makes the thirst bar go down
   const decreaseThirst = () => {
@@ -168,6 +165,7 @@ document.addEventListener("DOMContentLoaded", () => {
       thirstBar.value--;
     }, 200);
   };
+  decreaseThirst();
 
   //makes the health bar go down
   const decreaseHealth = () => {
@@ -175,6 +173,7 @@ document.addEventListener("DOMContentLoaded", () => {
       healthBar.value--;
     }, 200);
   };
+  decreaseHealth();
 
   //makes the happiness bar go down
   const decreaseHappy = () => {
@@ -182,6 +181,7 @@ document.addEventListener("DOMContentLoaded", () => {
       happyBar.value--;
     }, 200);
   };
+  decreaseHappy();
 
   //buttons work
   eatButton.addEventListener("click", () => {
