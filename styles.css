@@ -1,12 +1,36 @@
+html,
 body {
   font-family: monospace;
-  background-image: url("./Images/cartoon-sky.jpg");
-  background-size: 100%;
   color: darkblue;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
 }
 
 img {
   background: transparent;
+  object-fit: contain;
+}
+
+.welcomePage,
+.petSelectionPage,
+.gamePage,
+.deathMes {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100%;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .selectionBtns {
@@ -16,16 +40,23 @@ img {
 
 .selectionBtns img {
   width: 10%;
-  height: 20%;
+  height: auto;
 }
 
 section {
-  display: none; /* initially hide all sections */
+  display: none;
+  width: 100%;
+  height: 100%;
 }
 
 .welcomePage {
   display: block;
   text-align: center;
+  background-image: url("./Images/cartoon-sky.jpg");
+}
+
+.petSelectionPage {
+  background-image: url("./Images/cartoon-sky.jpg");
 }
 
 h1 {
@@ -35,16 +66,16 @@ h1 {
 h2 {
   color: rgb(68, 7, 7);
 }
+
 .petSelectionPage,
 .gamePage,
 .deathMes {
-  display: none; /* hide these sections by default */
+  display: none;
 }
 
 .image-button {
   cursor: pointer;
   border: 2px solid transparent;
-  transition: border-color 0.3s;
 }
 
 .image-button:hover {
@@ -52,16 +83,49 @@ h2 {
 }
 
 .animals > div {
-  display: none; /* hide all animal sections by default */
+  display: none;
 }
 
 .snake,
 .fish,
 .rabbit {
-  display: none; /* ensure specific animals are hidden by default */
+  display: none;
 }
 
 .errorMessage {
   color: red;
   display: none;
+}
+
+.snake {
+  background-image: url("./Images/snaketank.jpg");
+  background-size: cover;
+  height: 100vh;
+}
+
+#snake-page-img {
+  width: 10%;
+  height: auto;
+}
+
+.fish {
+  background-image: url("./Images/fishtank.jpg");
+  background-size: cover;
+  height: 100vh;
+}
+
+#fish-page-img {
+  width: 10%;
+  height: auto;
+}
+
+.rabbit {
+  background-image: url("./Images/field.jpg");
+  background-size: cover;
+  height: 100vh;
+}
+
+#rabbit-page-img {
+  width: 10%;
+  height: auto;
 }
