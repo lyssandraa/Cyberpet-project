@@ -1,4 +1,4 @@
-// generic class for all pets //
+// Generic class for all pets
 class Animal {
   constructor(name, hungerBar, thirstBar, healthBar, happyBar) {
     this.name = name;
@@ -7,14 +7,15 @@ class Animal {
     this.healthBar = healthBar;
     this.happyBar = happyBar;
   }
+
   eat() {
-    this.hungerBar.value = Math.min(this.hungerBar.value + 10, 100); // increase hunger by 10 //
+    this.hungerBar.value = Math.min(this.hungerBar.value + 10, 100); // Increase hunger by 10
   }
 
   sleep() {
-    this.healthBar.value = Math.min(this.healthBar.value + 10, 100); // increase health by 10 //
-    this.hungerBar.value = Math.max(this.hungerBar.value - 10, 0); // decrease hunger by 10 //
-    this.thirstBar.value = Math.max(this.thirstBar.value - 10, 0); // decrease thirst by 10 //
+    this.healthBar.value = Math.min(this.healthBar.value + 10, 100); // Increase health by 10
+    this.hungerBar.value = Math.max(this.hungerBar.value - 10, 0); // Decrease hunger by 10
+    this.thirstBar.value = Math.max(this.thirstBar.value - 10, 0); // Decrease thirst by 10
   }
 
   drink() {}
@@ -26,8 +27,13 @@ class Animal {
   hop() {}
 }
 
-// snake subclasses //
+// Snake subclass
 class Snake extends Animal {
+  constructor(name, hungerBar, thirstBar, healthBar, happyBar) {
+    super(name, hungerBar, thirstBar, healthBar, happyBar);
+    this.decreaseRate = 2000; // Decrease rate for snake
+  }
+
   drink() {
     this.thirstBar.value = Math.min(this.thirstBar.value + 10, 100);
   }
@@ -39,8 +45,13 @@ class Snake extends Animal {
   }
 }
 
-// fish subclass //
+// Fish subclass
 class Fish extends Animal {
+  constructor(name, hungerBar, thirstBar, healthBar, happyBar) {
+    super(name, hungerBar, thirstBar, healthBar, happyBar);
+    this.decreaseRate = 1000; // Decrease rate for fish
+  }
+
   swim() {
     this.happyBar.value = Math.min(this.happyBar.value + 10, 100);
     this.hungerBar.value = Math.max(this.hungerBar.value - 10, 0);
@@ -48,8 +59,13 @@ class Fish extends Animal {
   }
 }
 
-// rabbit subclass //
+// Rabbit subclass
 class Rabbit extends Animal {
+  constructor(name, hungerBar, thirstBar, healthBar, happyBar) {
+    super(name, hungerBar, thirstBar, healthBar, happyBar);
+    this.decreaseRate = 500; // Decrease rate for rabbit
+  }
+
   drink() {
     this.thirstBar.value = Math.min(this.thirstBar.value + 10, 100);
   }
@@ -62,31 +78,31 @@ class Rabbit extends Animal {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  // references to the pet selection images //
+  // References to the pet selection images
   const snakeSelect = document.getElementById("snakeSelect");
   const fishSelect = document.getElementById("fishSelect");
   const rabbitSelect = document.getElementById("rabbitSelect");
 
-  // reference to the name input field //
+  // Reference to the name input field
   const petNameInput = document.getElementById("petName");
 
-  // reference to the play button //
+  // Reference to the play button
   const playBtn = document.querySelector(".playBtn button");
 
-  // reference to the error message //
+  // Reference to the error message
   const errorMessage = document.getElementById("errorMessage");
 
-  // references to the different sections in the HTML //
+  // References to the different sections in the HTML
   const welcomePage = document.querySelector(".welcomePage");
   const petSelectionPage = document.querySelector(".petSelectionPage");
   const gamePage = document.querySelector(".gamePage");
 
-  // references to the individual animal sections //
+  // References to the individual animal sections
   const snakeSection = document.querySelector(".snake");
   const fishSection = document.querySelector(".fish");
   const rabbitSection = document.querySelector(".rabbit");
 
-  // get stat bar elements for each pet type //
+  // Get stat bar elements for each pet type
   const snakeBars = {
     hungerBar: snakeSection.querySelector("#hungerBar"),
     thirstBar: snakeSection.querySelector("#thirstBar"),
@@ -108,20 +124,18 @@ document.addEventListener("DOMContentLoaded", () => {
     happyBar: rabbitSection.querySelector("#happyBar"),
   };
 
-  // variable to store the selected pet instance
+  // Variable to store the selected pet instance
   let pet = null;
 
-  // add event listener to transition from welcome to pet selection when enter is pressed //
+  // Add event listener to transition from welcome to pet selection when enter is pressed
   document.addEventListener("keydown", (event) => {
     if (event.key === "Enter") {
-      // hides welcome page //
-      welcomePage.style.display = "none";
-      // displays pet selection page instead //
-      petSelectionPage.style.display = "block";
+      welcomePage.style.display = "none"; // Hide welcome page
+      petSelectionPage.style.display = "block"; // Display pet selection page
     }
   });
 
-  // function for the pet selection process //
+  // Function for the pet selection process
   function selectPet(petType) {
     const petName = petNameInput.value;
     if (!petName) {
@@ -165,24 +179,19 @@ document.addEventListener("DOMContentLoaded", () => {
       rabbitSection.style.display = "block";
     }
 
-    // display pet name in the respective section //
-    document.getElementById(`${petType}NameDisplay`).textContent = `${petName}`;
+    // Display pet name in the respective section
+    document.getElementById(`${petType}NameDisplay`).textContent = petName;
+
+    // Start decreasing stats for the selected pet
+    decreaseStats();
   }
 
-  // Event listeners for pet images //
-  snakeSelect.addEventListener("click", () => {
-    selectPet("snake");
-  });
+  // Event listeners for pet images
+  snakeSelect.addEventListener("click", () => selectPet("snake"));
+  fishSelect.addEventListener("click", () => selectPet("fish"));
+  rabbitSelect.addEventListener("click", () => selectPet("rabbit"));
 
-  fishSelect.addEventListener("click", () => {
-    selectPet("fish");
-  });
-
-  rabbitSelect.addEventListener("click", () => {
-    selectPet("rabbit");
-  });
-
-  // event listener for the play button and name input field //
+  // Event listener for the play button and name input field
   playBtn.addEventListener("click", () => {
     if (pet) {
       errorMessage.style.display = "none";
@@ -194,7 +203,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  // recursive function to decrease stats over time //
+  // Recursive function to decrease stats over time
   function decreaseStats() {
     setTimeout(() => {
       if (pet) {
@@ -202,13 +211,12 @@ document.addEventListener("DOMContentLoaded", () => {
         pet.thirstBar.value = Math.max(pet.thirstBar.value - 1, 0);
         pet.healthBar.value = Math.max(pet.healthBar.value - 1, 0);
         pet.happyBar.value = Math.max(pet.happyBar.value - 1, 0);
+        decreaseStats();
       }
-      decreaseStats();
-    }, 500);
+    }, pet.decreaseRate);
   }
-  decreaseStats();
 
-  // Event listeners for action buttons //
+  // Event listeners for action buttons
   document.querySelectorAll(".eatButton").forEach((button) => {
     button.addEventListener("click", () => {
       if (pet) pet.eat();
