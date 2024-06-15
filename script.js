@@ -239,10 +239,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Function to reset the game
   function resetGame() {
-    pet = null; // Reset pet instance
-    errorMessage.style.display = "none"; // Hide error message if shown
-    gamePage.style.opacity = "1"; // Restore game page opacity
-    petSelectionPage.style.display = "block"; // Show pet selection page
+    pet = null;
+    errorMessage.style.display = "none";
+    gamePage.style.opacity = "1";
+    gamePage.style.display = "none";
+    petSelectionPage.style.display = "none";
+    welcomePage.style.display = "block";
 
     // Reset all stat bars to full
     snakeBars.hungerBar.value = 100;
@@ -260,16 +262,17 @@ document.addEventListener("DOMContentLoaded", () => {
     rabbitBars.healthBar.value = 100;
     rabbitBars.happyBar.value = 100;
 
-    // Hide death message if still visible
+    // Hide the death message section
     const deathMes = document.querySelector(".deathMes");
-    deathMes.style.display = "none"; // Ensure it's hidden
+    deathMes.style.display = "none";
 
-    // Clear pet name display
-    document.getElementById("snakeNameDisplay").textContent = "";
-    document.getElementById("fishNameDisplay").textContent = "";
-    document.getElementById("rabbitNameDisplay").textContent = "";
-
-    // Show welcome page
-    welcomePage.style.display = "block"; // Show welcome page
+    // Hide all animal sections
+    snakeSection.style.display = "none";
+    fishSection.style.display = "none";
+    rabbitSection.style.display = "none";
   }
+
+  document
+    .querySelector(".deathMes .restartBtn")
+    .addEventListener("click", resetGame);
 });
