@@ -20,6 +20,8 @@ class Animal {
 
   drink() {}
 
+  play() {}
+
   slither() {}
 
   swim() {}
@@ -211,36 +213,63 @@ document.addEventListener("DOMContentLoaded", () => {
         pet.thirstBar.value = Math.max(pet.thirstBar.value - 1, 0);
         pet.healthBar.value = Math.max(pet.healthBar.value - 1, 0);
         pet.happyBar.value = Math.max(pet.happyBar.value - 1, 0);
-        decreaseStats();
+
+        // Check if any bar is zero
+        if (
+          pet.hungerBar.value === 0 ||
+          pet.thirstBar.value === 0 ||
+          pet.healthBar.value === 0 ||
+          pet.happyBar.value === 0
+        ) {
+          gameOver();
+          return; // Stop further decreasing stats
+        }
+
+        decreaseStats(); // Continue decreasing stats
       }
     }, pet.decreaseRate);
   }
 
-  // Event listeners for action buttons
-  document.querySelectorAll(".eatButton").forEach((button) => {
-    button.addEventListener("click", () => {
-      if (pet) pet.eat();
-    });
-  });
+  // Function to handle game over
+  function gameOver() {
+    gamePage.style.opacity = "0.5";
+    const deathMes = document.querySelector(".deathMes");
+    deathMes.style.display = "block";
+  }
 
-  document.querySelectorAll(".drinkButton").forEach((button) => {
-    button.addEventListener("click", () => {
-      if (pet instanceof Fish) return;
-      if (pet) pet.drink();
-    });
-  });
+  // Function to reset the game
+  function resetGame() {
+    pet = null; // Reset pet instance
+    errorMessage.style.display = "none"; // Hide error message if shown
+    gamePage.style.opacity = "1"; // Restore game page opacity
+    petSelectionPage.style.display = "block"; // Show pet selection page
 
-  document.querySelectorAll(".sleepButton").forEach((button) => {
-    button.addEventListener("click", () => {
-      if (pet) pet.sleep();
-    });
-  });
+    // Reset all stat bars to full
+    snakeBars.hungerBar.value = 100;
+    snakeBars.thirstBar.value = 100;
+    snakeBars.healthBar.value = 100;
+    snakeBars.happyBar.value = 100;
 
-  document.querySelectorAll(".playButton").forEach((button) => {
-    button.addEventListener("click", () => {
-      if (pet instanceof Snake) pet.slither();
-      else if (pet instanceof Fish) pet.swim();
-      else if (pet instanceof Rabbit) pet.hop();
-    });
-  });
+    fishBars.hungerBar.value = 100;
+    fishBars.thirstBar.value = 100;
+    fishBars.healthBar.value = 100;
+    fishBars.happyBar.value = 100;
+
+    rabbitBars.hungerBar.value = 100;
+    rabbitBars.thirstBar.value = 100;
+    rabbitBars.healthBar.value = 100;
+    rabbitBars.happyBar.value = 100;
+
+    // Hide death message if still visible
+    const deathMes = document.querySelector(".deathMes");
+    deathMes.style.display = "none"; // Ensure it's hidden
+
+    // Clear pet name display
+    document.getElementById("snakeNameDisplay").textContent = "";
+    document.getElementById("fishNameDisplay").textContent = "";
+    document.getElementById("rabbitNameDisplay").textContent = "";
+
+    // Show welcome page
+    welcomePage.style.display = "block"; // Show welcome page
+  }
 });

@@ -19,8 +19,7 @@ img {
 
 .welcomePage,
 .petSelectionPage,
-.gamePage,
-.deathMes {
+.gamePage {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -128,4 +127,19 @@ h2 {
 #rabbit-page-img {
   width: 10%;
   height: auto;
+}
+
+.deathMes {
+  display: none;
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 20px;
+  border: 2px solid black;
+  text-align: center;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+  width: 80%;
+  max-width: 600px;
 }
